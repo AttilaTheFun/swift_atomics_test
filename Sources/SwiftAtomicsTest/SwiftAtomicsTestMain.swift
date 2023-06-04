@@ -21,7 +21,7 @@ import _AtomicsShims
 //   }
 // }
 
-@_fixed_layout
+// @_fixed_layout
 public class TestManagedAtomic<Value: AtomicValue>
 where Value.AtomicRepresentation.Value == Value {
   // Note: the Value.AtomicRepresentation.Value == Value requirement could be relaxed,
@@ -45,16 +45,6 @@ where Value.AtomicRepresentation.Value == Value {
   public init(_ value: Value) {
     _storage = _Storage(value)
   }
-
-  // deinit {
-  //   _ = _ptr.pointee.dispose()
-  // }
-
-  // @_alwaysEmitIntoClient @inline(__always)
-  // internal var _ptr: UnsafeMutablePointer<_Storage> {
-  //   _getUnsafePointerToStoredProperties(self)
-  //     .assumingMemoryBound(to: _Storage.self)
-  // }
 }
 
 @main

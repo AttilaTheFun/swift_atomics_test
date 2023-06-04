@@ -5,8 +5,8 @@ swift_library(
     copts = select({
         "@platforms//os:linux" : [
             "-experimental-skip-non-inlinable-function-bodies-without-types",
-            # "-enable-anonymous-context-mangled-names",
-            # "-disable-objc-interop",
+            "-enable-anonymous-context-mangled-names",
+            "-disable-objc-interop",
         ],
         "//conditions:default" : [],
     }),

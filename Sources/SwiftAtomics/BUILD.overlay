@@ -27,7 +27,7 @@ swift_library(
         "//conditions:default" : [],
     }),
     defines = ["SWIFT_PACKAGE"],
-    deps = [":AtomicsShims"],
+    deps = [":_AtomicsShims"],
     module_name = "Atomics",
     srcs = [
         "Sources/Atomics/AtomicInteger.swift",
@@ -51,7 +51,7 @@ swift_library(
 )
 
 cc_library(
-    name = "AtomicsShims",
+    name = "_AtomicsShims",
     copts = [
         "-fblocks",
         "-fobjc-arc",

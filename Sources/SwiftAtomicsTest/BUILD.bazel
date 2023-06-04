@@ -6,6 +6,6 @@ swift_binary(
     module_name = "SwiftAtomicsTest",
     visibility = ["//visibility:public"],
     deps = [
-        "@swiftpkg_swift_atomics//:Sources_Atomics",
+        "@com_github_apple_swift_atomics//:Atomics",
     ],
 )

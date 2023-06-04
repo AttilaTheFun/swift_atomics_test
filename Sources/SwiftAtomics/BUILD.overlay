@@ -4,8 +4,8 @@ swift_library(
     name = "Atomics",
     copts = select({
         "@platforms//os:linux" : [
-            "-new-driver-path",
-            "/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver",
+            # "-new-driver-path",
+            # "/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver",
 
             "-swift-version",
             "5",
@@ -22,7 +22,7 @@ swift_library(
 
             "-experimental-skip-non-inlinable-function-bodies-without-types",
 
-            "-disable-objc-interop",
+            # "-disable-objc-interop",
         ],
         "//conditions:default" : [],
     }),

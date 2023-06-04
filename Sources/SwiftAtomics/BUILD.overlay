@@ -16,9 +16,9 @@ swift_library(
             "-Xllvm",
             "-aarch64-use-tbi",
 
-            "-empty-abi-descriptor",
+            # "-empty-abi-descriptor",
 
-            "-enable-anonymous-context-mangled-names",
+            # "-enable-anonymous-context-mangled-names",
 
             "-experimental-skip-non-inlinable-function-bodies-without-types",
 

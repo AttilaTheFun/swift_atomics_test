@@ -2,6 +2,14 @@ load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 swift_library(
     name = "Atomics",
+    copts = select({
+        "@platforms//os:linux" : [
+            "-experimental-skip-non-inlinable-function-bodies-without-types",
+            # "-enable-anonymous-context-mangled-names",
+            # "-disable-objc-interop",
+        ],
+        "//conditions:default" : [],
+    }),
     defines = ["SWIFT_PACKAGE"],
     deps = [":AtomicsShims"],
     module_name = "Atomics",

@@ -4,8 +4,24 @@ swift_library(
     name = "Atomics",
     copts = select({
         "@platforms//os:linux" : [
-            "-experimental-skip-non-inlinable-function-bodies-without-types",
+            "-new-driver-path",
+            "/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver",
+
+            "-swift-version",
+            "5",
+
+            "-target",
+            "aarch64-unknown-linux-gnu",
+
+            "-Xllvm",
+            "-aarch64-use-tbi",
+
+            "-empty-abi-descriptor",
+
             "-enable-anonymous-context-mangled-names",
+
+            "-experimental-skip-non-inlinable-function-bodies-without-types",
+
             "-disable-objc-interop",
         ],
         "//conditions:default" : [],

@@ -21,7 +21,7 @@ import _AtomicsShims
 //   }
 // }
 
-// @_fixed_layout
+@_fixed_layout
 public class TestManagedAtomic<Value: AtomicValue>
 where Value.AtomicRepresentation.Value == Value {
   // Note: the Value.AtomicRepresentation.Value == Value requirement could be relaxed,

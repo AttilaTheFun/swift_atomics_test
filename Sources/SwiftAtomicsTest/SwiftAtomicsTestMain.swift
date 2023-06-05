@@ -1,5 +1,5 @@
 // import Atomics
-// import _AtomicsShims
+import _AtomicsShims
 
 // extension Bool {
   // struct TestAtomicRepresentation {
@@ -59,6 +59,8 @@ public protocol AtomicStorage {
 
 extension Bool: AtomicValue {
   public struct AtomicRepresentation: AtomicStorage {
+    public typealias Value = Bool
+
     @usableFromInline
     internal typealias _Storage = Int8 // _AtomicInt8Storage
 
@@ -91,16 +93,6 @@ where Value.AtomicRepresentation.Value == Value {
   public init(_ value: Value) {
     _storage = _Storage(value)
   }
-
-  // deinit {
-  //   _ = _ptr.pointee.dispose()
-  // }
-
-  // @_alwaysEmitIntoClient @inline(__always)
-  // internal var _ptr: UnsafeMutablePointer<_Storage> {
-  //   _getUnsafePointerToStoredProperties(self)
-  //     .assumingMemoryBound(to: _Storage.self)
-  // }
 }
 
 @main

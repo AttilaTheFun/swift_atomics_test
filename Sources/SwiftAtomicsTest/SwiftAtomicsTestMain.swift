@@ -1,4 +1,4 @@
-// import Atomics
+import Atomics
 import _AtomicsShims
 
 // extension Bool {
@@ -47,37 +47,37 @@ import _AtomicsShims
 //   }
 // }
 
-public protocol AtomicValue {
-  associatedtype AtomicRepresentation: AtomicStorage
-}
+// public protocol AtomicValue {
+//   associatedtype AtomicRepresentation: AtomicStorage
+// }
 
-public protocol AtomicStorage {
-  associatedtype Value
+// public protocol AtomicStorage {
+//   associatedtype Value
 
-  init(_ value: __owned Value)
-}
+//   init(_ value: __owned Value)
+// }
 
-extension Bool: AtomicValue {
-  public struct AtomicRepresentation: AtomicStorage {
-    public typealias Value = Bool
+// extension Bool: AtomicValue {
+//   public struct AtomicRepresentation: AtomicStorage {
+//     public typealias Value = Bool
 
-    @usableFromInline
-    internal typealias _Storage = _AtomicInt8Storage
+//     @usableFromInline
+//     internal typealias _Storage = _AtomicInt8Storage
 
-    @usableFromInline
-    internal var _storage: _Storage
+//     @usableFromInline
+//     internal var _storage: _Storage
 
-    @inline(__always) @_alwaysEmitIntoClient
-    public init(_ value: Bool) {
-      _storage = _sa_prepare_Int8(value._atomicValue)
-    }
-  }
+//     @inline(__always) @_alwaysEmitIntoClient
+//     public init(_ value: Bool) {
+//       _storage = _sa_prepare_Int8(value._atomicValue)
+//     }
+//   }
 
-  @_alwaysEmitIntoClient @inline(__always)
-  internal var _atomicValue: Int8 {
-    self ? 1 : 0
-  }
-}
+//   @_alwaysEmitIntoClient @inline(__always)
+//   internal var _atomicValue: Int8 {
+//     self ? 1 : 0
+//   }
+// }
 
 @_fixed_layout
 public class ManagedAtomic<Value: AtomicValue>

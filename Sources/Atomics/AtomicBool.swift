@@ -15,11 +15,6 @@ extension Bool: AtomicValue {
     public init(_ value: Bool) {
       _storage = _sa_prepare_Int8(value._atomicValue)
     }
-
-    // @inline(__always) @_alwaysEmitIntoClient
-    // public func dispose() -> Value {
-    //   return _sa_dispose_Int8(_storage)._atomicBoolValue
-    // }
   }
 
   @_alwaysEmitIntoClient @inline(__always)
@@ -35,14 +30,14 @@ extension Int8 {
   }
 }
 
-extension UnsafeMutablePointer
-where Pointee == Bool.AtomicRepresentation {
-  @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
-  internal var _extract: UnsafeMutablePointer<Pointee._Storage> {
-    UnsafeMutableRawPointer(self).assumingMemoryBound(to: Pointee._Storage.self)
-  }
-}
+// extension UnsafeMutablePointer
+// where Pointee == Bool.AtomicRepresentation {
+//   @_transparent @_alwaysEmitIntoClient
+//   @usableFromInline
+//   internal var _extract: UnsafeMutablePointer<Pointee._Storage> {
+//     UnsafeMutableRawPointer(self).assumingMemoryBound(to: Pointee._Storage.self)
+//   }
+// }
 
 extension Bool.AtomicRepresentation: AtomicStorage {
 }

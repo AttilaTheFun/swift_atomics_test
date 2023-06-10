@@ -278,15 +278,7 @@ extension ManagedAtomic {
 }
 
 extension ManagedAtomic where Value: AtomicInteger {
-  /// Perform an atomic wrapping add operation and return the original value, applying
-  /// the specified memory ordering.
-  ///
-  /// Note: This operation silently wraps around on overflow, like the
-  /// `&+` operator does on `Int` values.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
+
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public func loadThenWrappingIncrement(
@@ -294,20 +286,8 @@ extension ManagedAtomic where Value: AtomicInteger {
     ordering: AtomicUpdateOrdering
   ) -> Value {
     return operand
-    // _Storage.atomicLoadThenWrappingIncrement(
-    //   by: operand,
-    //   at: _ptr,
-    //   ordering: ordering)
   }
-  /// Perform an atomic wrapping subtract operation and return the original value, applying
-  /// the specified memory ordering.
-  ///
-  /// Note: This operation silently wraps around on overflow, like the
-  /// `&-` operator does on `Int` values.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
+
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public func loadThenWrappingDecrement(
@@ -319,12 +299,7 @@ extension ManagedAtomic where Value: AtomicInteger {
       at: _ptr,
       ordering: ordering)
   }
-  /// Perform an atomic bitwise AND operation and return the original value, applying
-  /// the specified memory ordering.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
+
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public func loadThenBitwiseAnd(
@@ -336,12 +311,7 @@ extension ManagedAtomic where Value: AtomicInteger {
       at: _ptr,
       ordering: ordering)
   }
-  /// Perform an atomic bitwise OR operation and return the original value, applying
-  /// the specified memory ordering.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
+
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public func loadThenBitwiseOr(
@@ -353,12 +323,7 @@ extension ManagedAtomic where Value: AtomicInteger {
       at: _ptr,
       ordering: ordering)
   }
-  /// Perform an atomic bitwise XOR operation and return the original value, applying
-  /// the specified memory ordering.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
+
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public func loadThenBitwiseXor(
@@ -371,27 +336,19 @@ extension ManagedAtomic where Value: AtomicInteger {
       ordering: ordering)
   }
 
-  /// Perform an atomic wrapping add operation and return the new value, applying
-  /// the specified memory ordering.
-  ///
-  /// Note: This operation silently wraps around on overflow, like the
-  /// `&+` operator does on `Int` values.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The new value after the operation.
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public func wrappingIncrementThenLoad(
-    by operand: Value = 1,
-    ordering: AtomicUpdateOrdering
-  ) -> Value {
-    // let original = _Storage.atomicLoadThenWrappingIncrement(
-    //   by: operand,
-    //   at: _ptr,
-    //   ordering: ordering)
-    return operand
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public func wrappingIncrementThenLoad(
+  //   by operand: Value = 1,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Value {
+  //   // let original = _Storage.atomicLoadThenWrappingIncrement(
+  //   //   by: operand,
+  //   //   at: _ptr,
+  //   //   ordering: ordering)
+  //   return operand
+  // }
+
   /// Perform an atomic wrapping subtract operation and return the new value, applying
   /// the specified memory ordering.
   ///
@@ -468,24 +425,12 @@ extension ManagedAtomic where Value: AtomicInteger {
     return original ^ operand
   }
 
-  /// Perform an atomic wrapping increment operation applying the
-  /// specified memory ordering.
-  ///
-  /// Note: This operation silently wraps around on overflow, like the
-  /// `&+=` operator does on `Int` values.
-  ///
-  /// - Parameter operand: The value to add to the current value.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public func wrappingIncrement(
     by operand: Value = 1,
     ordering: AtomicUpdateOrdering
   ) {
-    // _ = _Storage.atomicLoadThenWrappingIncrement(
-    //   by: operand,
-    //   at: _ptr,
-    //   ordering: ordering)
   }
 
   /// Perform an atomic wrapping decrement operation applying the

@@ -1,15 +1,12 @@
 
 extension Bool: AtomicValue {
 
-  // @frozen
   public struct AtomicRepresentation {
-    public typealias Value = Bool
+    // public typealias Value = Bool
 
-    // @usableFromInline
-    internal typealias _Storage = Int8
+    // internal typealias _Storage = Int8
 
-    // @usableFromInline
-    internal var _storage: _Storage
+    internal var _storage: Int8
 
     public init(_ value: Bool) {
       _storage = value ? 1 : 0

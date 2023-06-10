@@ -3,11 +3,9 @@
 public class ManagedAtomic<Value: AtomicValue>
 where Value.AtomicRepresentation.Value == Value {
 
-  // @usableFromInline
-  internal typealias _Storage = Value.AtomicRepresentation
+  // internal typealias _Storage = 
 
-  // @usableFromInline
-  internal var _storage: _Storage
+  internal var _storage: Value.AtomicRepresentation
 
   public init(_ value: Value) {
     _storage = _Storage(value)

@@ -1,11 +1,6 @@
 
 extension Bool: AtomicValue {
-
   public struct AtomicRepresentation {
-    // public typealias Value = Bool
-
-    // internal typealias _Storage = Int8
-
     internal var _storage: Int8
 
     public init(_ value: Bool) {
@@ -16,4 +11,3 @@ extension Bool: AtomicValue {
 
 extension Bool.AtomicRepresentation: AtomicStorage {
 }
-

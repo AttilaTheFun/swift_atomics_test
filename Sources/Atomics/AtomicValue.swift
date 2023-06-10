@@ -1,6 +1,6 @@
 
 public protocol AtomicValue {
-  associatedtype AtomicRepresentation: AtomicStorage
+  // associatedtype AtomicRepresentation: AtomicStorage
 }
 
 public protocol AtomicStorage {

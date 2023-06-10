@@ -1,5 +1,5 @@
 
-@_fixed_layout
+// @_fixed_layout
 public class ManagedAtomic<Value: AtomicValue>
 where Value.AtomicRepresentation.Value == Value {
 

@@ -1,6 +1,3 @@
-// #if ATOMICS_NATIVE_BUILTINS
-// import Swift
-// #endif
 
 @_fixed_layout
 public class ManagedAtomic<Value: AtomicValue>
@@ -17,9 +14,9 @@ where Value.AtomicRepresentation.Value == Value {
     _storage = _Storage(value)
   }
 
-  deinit {
-    _ = _ptr.pointee.dispose()
-  }
+  // deinit {
+  //   _ = _ptr.pointee.dispose()
+  // }
 
   @_alwaysEmitIntoClient @inline(__always)
   internal var _ptr: UnsafeMutablePointer<_Storage> {

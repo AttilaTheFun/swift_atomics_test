@@ -8,6 +8,6 @@ where Value.AtomicRepresentation.Value == Value {
   internal var _storage: Value.AtomicRepresentation
 
   public init(_ value: Value) {
-    _storage = _Storage(value)
+    _storage = Value.AtomicRepresentation(value)
   }
 }

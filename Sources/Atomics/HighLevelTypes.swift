@@ -1,6 +1,6 @@
-#if ATOMICS_NATIVE_BUILTINS
-import Swift
-#endif
+// #if ATOMICS_NATIVE_BUILTINS
+// import Swift
+// #endif
 
 @_fixed_layout
 public class ManagedAtomic<Value: AtomicValue>

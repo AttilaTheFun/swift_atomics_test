@@ -1,41 +1,41 @@
-#if ATOMICS_NATIVE_BUILTINS
-import Swift
-#else
+// #if ATOMICS_NATIVE_BUILTINS
+// import Swift
+// #else
 import _AtomicsShims
-#endif
+// #endif
 
 extension Bool: AtomicValue {
   @frozen
   public struct AtomicRepresentation {
     public typealias Value = Bool
 
-#if ATOMICS_NATIVE_BUILTINS
-    @usableFromInline
-    internal typealias _Storage = Int8
-#else
+// #if ATOMICS_NATIVE_BUILTINS
+//     @usableFromInline
+//     internal typealias _Storage = Int8
+// #else
     @usableFromInline
     internal typealias _Storage = _AtomicInt8Storage
-#endif
+// #endif
 
     @usableFromInline
     internal var _storage: _Storage
 
     @inline(__always) @_alwaysEmitIntoClient
     public init(_ value: Bool) {
-#if ATOMICS_NATIVE_BUILTINS
-      _storage = value._atomicValue
-#else
+// #if ATOMICS_NATIVE_BUILTINS
+//       _storage = value._atomicValue
+// #else
       _storage = _sa_prepare_Int8(value._atomicValue)
-#endif
+// #endif
     }
 
     @inline(__always) @_alwaysEmitIntoClient
     public func dispose() -> Value {
-#if ATOMICS_NATIVE_BUILTINS
-      return _storage._atomicBoolValue
-#else
+// #if ATOMICS_NATIVE_BUILTINS
+//       return _storage._atomicBoolValue
+// #else
       return _sa_dispose_Int8(_storage)._atomicBoolValue
-#endif
+// #endif
     }
   }
 

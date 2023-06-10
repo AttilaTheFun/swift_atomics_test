@@ -1,7 +1,6 @@
-#if ATOMICS_NATIVE_BUILTINS
-import Swift
-#endif
-
+// #if ATOMICS_NATIVE_BUILTINS
+// import Swift
+// #endif
 
 public protocol AtomicValue {
   associatedtype AtomicRepresentation: AtomicStorage

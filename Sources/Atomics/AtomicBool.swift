@@ -218,17 +218,17 @@ extension Bool.AtomicRepresentation {
   ///   returned by `prepareAtomicRepresentation(for:)`.
   /// - Parameter ordering: The memory ordering to apply on this operation.
   /// - Returns: The original value before the operation.
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public static func atomicLoadThenLogicalXor(
-    with operand: Value,
-    at pointer: UnsafeMutablePointer<Self>,
-    ordering: AtomicUpdateOrdering
-  ) -> Value {
-    pointer._extract._atomicLoadThenBitwiseXor(
-      with: operand._atomicValue, ordering: ordering
-    )._atomicBoolValue
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public static func atomicLoadThenLogicalXor(
+  //   with operand: Value,
+  //   at pointer: UnsafeMutablePointer<Self>,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Value {
+  //   pointer._extract._atomicLoadThenBitwiseXor(
+  //     with: operand._atomicValue, ordering: ordering
+  //   )._atomicBoolValue
+  // }
 }
 
 extension ManagedAtomic where Value == Bool {
@@ -272,17 +272,17 @@ extension ManagedAtomic where Value == Bool {
   /// - Parameter operand: A boolean value.
   /// - Parameter ordering: The memory ordering to apply on this operation.
   /// - Returns: The original value before the operation.
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public func loadThenLogicalXor(
-    with operand: Value,
-    ordering: AtomicUpdateOrdering
-  ) -> Value {
-    Value.AtomicRepresentation.atomicLoadThenLogicalXor(
-      with: operand,
-      at: _ptr,
-      ordering: ordering)
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public func loadThenLogicalXor(
+  //   with operand: Value,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Value {
+  //   Value.AtomicRepresentation.atomicLoadThenLogicalXor(
+  //     with: operand,
+  //     at: _ptr,
+  //     ordering: ordering)
+  // }
 }
 
 extension ManagedAtomic where Value == Bool {
@@ -310,34 +310,34 @@ extension ManagedAtomic where Value == Bool {
   /// - Parameter operand: A boolean value.
   /// - Parameter ordering: The memory ordering to apply on this operation.
   /// - Returns: The original value before the operation.
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public func logicalOrThenLoad(
-    with operand: Value,
-    ordering: AtomicUpdateOrdering
-  ) -> Value {
-    let original = Value.AtomicRepresentation.atomicLoadThenLogicalOr(
-      with: operand,
-      at: _ptr,
-      ordering: ordering)
-    return original || operand
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public func logicalOrThenLoad(
+  //   with operand: Value,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Value {
+  //   let original = Value.AtomicRepresentation.atomicLoadThenLogicalOr(
+  //     with: operand,
+  //     at: _ptr,
+  //     ordering: ordering)
+  //   return original || operand
+  // }
   /// Perform an atomic logical XOR operation and return the original value, applying
   /// the specified memory ordering.
   ///
   /// - Parameter operand: A boolean value.
   /// - Parameter ordering: The memory ordering to apply on this operation.
   /// - Returns: The original value before the operation.
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public func logicalXorThenLoad(
-    with operand: Value,
-    ordering: AtomicUpdateOrdering
-  ) -> Value {
-    let original = Value.AtomicRepresentation.atomicLoadThenLogicalXor(
-      with: operand,
-      at: _ptr,
-      ordering: ordering)
-    return original != operand
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public func logicalXorThenLoad(
+  //   with operand: Value,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Value {
+  //   let original = Value.AtomicRepresentation.atomicLoadThenLogicalXor(
+  //     with: operand,
+  //     at: _ptr,
+  //     ordering: ordering)
+  //   return original != operand
+  // }
 }

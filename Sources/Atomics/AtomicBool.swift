@@ -23,19 +23,10 @@ extension Bool: AtomicValue {
   }
 }
 
-extension Int8 {
-  @_alwaysEmitIntoClient @inline(__always)
-  internal var _atomicBoolValue: Bool {
-    (self & 1) != 0
-  }
-}
-
-// extension UnsafeMutablePointer
-// where Pointee == Bool.AtomicRepresentation {
-//   @_transparent @_alwaysEmitIntoClient
-//   @usableFromInline
-//   internal var _extract: UnsafeMutablePointer<Pointee._Storage> {
-//     UnsafeMutableRawPointer(self).assumingMemoryBound(to: Pointee._Storage.self)
+// extension Int8 {
+//   @_alwaysEmitIntoClient @inline(__always)
+//   internal var _atomicBoolValue: Bool {
+//     (self & 1) != 0
 //   }
 // }
 

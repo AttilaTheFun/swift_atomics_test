@@ -13,11 +13,5 @@ where Value.AtomicRepresentation.Value == Value {
   public init(_ value: Value) {
     _storage = _Storage(value)
   }
-
-  // @_alwaysEmitIntoClient @inline(__always)
-  // internal var _ptr: UnsafeMutablePointer<_Storage> {
-  //   _getUnsafePointerToStoredProperties(self)
-  //     .assumingMemoryBound(to: _Storage.self)
-  // }
 }
 

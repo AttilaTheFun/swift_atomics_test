@@ -1,5 +1,5 @@
 
-extension Bool: AtomicValue {
+extension Bool { //: AtomicValue {
   public struct AtomicRepresentation {
     internal var _storage: Int8
 

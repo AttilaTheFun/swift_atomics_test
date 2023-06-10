@@ -327,35 +327,36 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   /// `&+` operator does on `UInt` values.
   ///
   /// - Returns: The original value before the operation.
-  @_semantics("atomics.requires_constant_orderings")
-  @_alwaysEmitIntoClient
-  @_transparent // Debug performance
-  @usableFromInline
-  internal
-  func _atomicLoadThenWrappingIncrement(
-    by operand: Int8,
-    ordering: AtomicUpdateOrdering
-  ) -> Int8 {
-    switch ordering {
-    case .relaxed:
-      return _sa_fetch_add_relaxed_Int8(
-        self, operand)
-    case .acquiring:
-      return _sa_fetch_add_acquire_Int8(
-        self, operand)
-    case .releasing:
-      return _sa_fetch_add_release_Int8(
-        self, operand)
-    case .acquiringAndReleasing:
-      return _sa_fetch_add_acq_rel_Int8(
-        self, operand)
-    case .sequentiallyConsistent:
-      return _sa_fetch_add_seq_cst_Int8(
-        self, operand)
-    default:
-      preconditionFailure("Unsupported ordering")
-    }
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_alwaysEmitIntoClient
+  // @_transparent // Debug performance
+  // @usableFromInline
+  // internal
+  // func _atomicLoadThenWrappingIncrement(
+  //   by operand: Int8,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Int8 {
+  //   switch ordering {
+  //   case .relaxed:
+  //     return _sa_fetch_add_relaxed_Int8(
+  //       self, operand)
+  //   case .acquiring:
+  //     return _sa_fetch_add_acquire_Int8(
+  //       self, operand)
+  //   case .releasing:
+  //     return _sa_fetch_add_release_Int8(
+  //       self, operand)
+  //   case .acquiringAndReleasing:
+  //     return _sa_fetch_add_acq_rel_Int8(
+  //       self, operand)
+  //   case .sequentiallyConsistent:
+  //     return _sa_fetch_add_seq_cst_Int8(
+  //       self, operand)
+  //   default:
+  //     preconditionFailure("Unsupported ordering")
+  //   }
+  // }
+
   /// Perform an atomic wrapping subtract operation and return the new value,
   /// with the specified memory ordering.
   ///

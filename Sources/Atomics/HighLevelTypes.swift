@@ -293,10 +293,11 @@ extension ManagedAtomic where Value: AtomicInteger {
     by operand: Value = 1,
     ordering: AtomicUpdateOrdering
   ) -> Value {
-    _Storage.atomicLoadThenWrappingIncrement(
-      by: operand,
-      at: _ptr,
-      ordering: ordering)
+    return operand
+    // _Storage.atomicLoadThenWrappingIncrement(
+    //   by: operand,
+    //   at: _ptr,
+    //   ordering: ordering)
   }
   /// Perform an atomic wrapping subtract operation and return the original value, applying
   /// the specified memory ordering.
@@ -385,11 +386,11 @@ extension ManagedAtomic where Value: AtomicInteger {
     by operand: Value = 1,
     ordering: AtomicUpdateOrdering
   ) -> Value {
-    let original = _Storage.atomicLoadThenWrappingIncrement(
-      by: operand,
-      at: _ptr,
-      ordering: ordering)
-    return original &+ operand
+    // let original = _Storage.atomicLoadThenWrappingIncrement(
+    //   by: operand,
+    //   at: _ptr,
+    //   ordering: ordering)
+    return operand
   }
   /// Perform an atomic wrapping subtract operation and return the new value, applying
   /// the specified memory ordering.
@@ -481,10 +482,10 @@ extension ManagedAtomic where Value: AtomicInteger {
     by operand: Value = 1,
     ordering: AtomicUpdateOrdering
   ) {
-    _ = _Storage.atomicLoadThenWrappingIncrement(
-      by: operand,
-      at: _ptr,
-      ordering: ordering)
+    // _ = _Storage.atomicLoadThenWrappingIncrement(
+    //   by: operand,
+    //   at: _ptr,
+    //   ordering: ordering)
   }
 
   /// Perform an atomic wrapping decrement operation applying the

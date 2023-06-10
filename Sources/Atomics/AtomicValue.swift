@@ -1,6 +1,6 @@
 
-// public protocol AtomicValue {
-// }
+public protocol AtomicValue {
+}
 
 public protocol AtomicStorage {
 

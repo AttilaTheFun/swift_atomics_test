@@ -1,5 +1,5 @@
 
-public class ManagedAtomic<Value> { // <Value: AtomicValue> {
+public class ManagedAtomic<Value: AtomicValue> {
 
   internal var _storage: Value
 

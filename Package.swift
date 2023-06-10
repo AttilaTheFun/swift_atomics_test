@@ -1,17 +1,30 @@
 // swift-tools-version: 5.8
+// temp: swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
     name: "SwiftAtomicsTest",
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-atomics.git", exact: "1.1.0")
-    ],
     targets: [
+        .target(
+            name: "_AtomicsShims",
+            exclude: [
+                "BUILD.bazel",
+            ]
+        ),
+        .target(
+            name: "Atomics",
+            dependencies: [
+                "_AtomicsShims"
+            ],
+            exclude: [
+                "BUILD.bazel",
+            ]
+        ),
         .executableTarget(
             name: "SwiftAtomicsTest",
             dependencies: [
-                .product(name: "Atomics", package: "swift-atomics"),
+                "Atomics"
             ],
             exclude: ["BUILD.bazel"]
         )

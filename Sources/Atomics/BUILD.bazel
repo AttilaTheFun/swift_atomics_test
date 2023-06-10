@@ -1,0 +1,14 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "Atomics",
+    copts = [],
+    srcs = glob([
+        "**/*.swift",
+    ]),
+    module_name = "Atomics",
+    deps = [
+        "//Sources/_AtomicsShims",
+    ],
+    visibility = ["//visibility:public"],
+)

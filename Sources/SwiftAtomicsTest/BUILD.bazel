@@ -2,11 +2,10 @@ load("@build_bazel_rules_swift//swift:swift.bzl", "swift_binary")
 
 swift_binary(
     name = "SwiftAtomicsTest",
-    srcs = ["SwiftAtomicsTestMain.swift"],
+    srcs = glob(["*.swift"]),
     module_name = "SwiftAtomicsTest",
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_apple_swift_atomics//:Atomics",
-        "@com_github_apple_swift_atomics//:_AtomicsShims",
+        "//Sources/Atomics",
     ],
 )

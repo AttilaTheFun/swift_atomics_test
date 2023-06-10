@@ -2,9 +2,9 @@
 public protocol AtomicValue {
 }
 
-public protocol AtomicStorage {
+// public protocol AtomicStorage {
 
-  associatedtype Value
+//   associatedtype Value
 
-  init(_ value: __owned Value)
-}
+//   init(_ value: __owned Value)
+// }

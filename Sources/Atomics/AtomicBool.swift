@@ -103,18 +103,6 @@ extension Bool.AtomicRepresentation: AtomicStorage {
     pointer._extract._atomicStore(desired._atomicValue, ordering: ordering)
   }
 
-  // @_semantics("atomics.requires_constant_orderings")
-  // @_transparent @_alwaysEmitIntoClient
-  // public static func atomicExchange(
-  //   _ desired: __owned Bool,
-  //   at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-  //   ordering: AtomicUpdateOrdering
-  // ) -> Bool {
-  //   pointer._extract._atomicExchange(
-  //     desired._atomicValue, ordering: ordering
-  //   )._atomicBoolValue
-  // }
-
   @_semantics("atomics.requires_constant_orderings")
   @_transparent @_alwaysEmitIntoClient
   public static func atomicCompareExchange(
@@ -147,21 +135,21 @@ extension Bool.AtomicRepresentation: AtomicStorage {
     return (r.exchanged, r.original._atomicBoolValue)
   }
 
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public static func atomicWeakCompareExchange(
-    expected: Bool,
-    desired: __owned Bool,
-    at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-    successOrdering: AtomicUpdateOrdering,
-    failureOrdering: AtomicLoadOrdering
-  ) -> (exchanged: Bool, original: Bool) {
-    let r = pointer._extract._atomicWeakCompareExchange(
-      expected: expected._atomicValue,
-      desired: desired._atomicValue,
-      successOrdering: successOrdering,
-      failureOrdering: failureOrdering)
-    return (r.exchanged, r.original._atomicBoolValue)
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public static func atomicWeakCompareExchange(
+  //   expected: Bool,
+  //   desired: __owned Bool,
+  //   at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
+  //   successOrdering: AtomicUpdateOrdering,
+  //   failureOrdering: AtomicLoadOrdering
+  // ) -> (exchanged: Bool, original: Bool) {
+  //   let r = pointer._extract._atomicWeakCompareExchange(
+  //     expected: expected._atomicValue,
+  //     desired: desired._atomicValue,
+  //     successOrdering: successOrdering,
+  //     failureOrdering: failureOrdering)
+  //   return (r.exchanged, r.original._atomicBoolValue)
+  // }
 }
 

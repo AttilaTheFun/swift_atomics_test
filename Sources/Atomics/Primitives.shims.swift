@@ -44,25 +44,25 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
 
   /// Atomically stores the specified value starting at the memory referenced by
   /// this pointer, with the specified memory ordering.
-  @_semantics("atomics.requires_constant_orderings")
-  @_alwaysEmitIntoClient
-  @_transparent // Debug performance
-  @usableFromInline
-  internal func _atomicStore(
-    _ desired: Int8,
-    ordering: AtomicStoreOrdering
-  ) {
-    switch ordering {
-    case .relaxed:
-      _sa_store_relaxed_Int8(self, desired)
-    case .releasing:
-      _sa_store_release_Int8(self, desired)
-    case .sequentiallyConsistent:
-      _sa_store_seq_cst_Int8(self, desired)
-    default:
-      fatalError("Unsupported ordering")
-    }
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_alwaysEmitIntoClient
+  // @_transparent // Debug performance
+  // @usableFromInline
+  // internal func _atomicStore(
+  //   _ desired: Int8,
+  //   ordering: AtomicStoreOrdering
+  // ) {
+  //   switch ordering {
+  //   case .relaxed:
+  //     _sa_store_relaxed_Int8(self, desired)
+  //   case .releasing:
+  //     _sa_store_release_Int8(self, desired)
+  //   case .sequentiallyConsistent:
+  //     _sa_store_seq_cst_Int8(self, desired)
+  //   default:
+  //     fatalError("Unsupported ordering")
+  //   }
+  // }
 }
 
 #endif // ATOMICS_NATIVE_BUILTINS

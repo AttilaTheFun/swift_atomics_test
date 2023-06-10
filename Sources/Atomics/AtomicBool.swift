@@ -73,14 +73,14 @@ extension Bool.AtomicRepresentation: AtomicStorage {
     pointer._extract._atomicLoad(ordering: ordering)._atomicBoolValue
   }
 
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public static func atomicStore(
-    _ desired: __owned Bool,
-    at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-    ordering: AtomicStoreOrdering
-  ) {
-    pointer._extract._atomicStore(desired._atomicValue, ordering: ordering)
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public static func atomicStore(
+  //   _ desired: __owned Bool,
+  //   at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
+  //   ordering: AtomicStoreOrdering
+  // ) {
+  //   pointer._extract._atomicStore(desired._atomicValue, ordering: ordering)
+  // }
 }
 

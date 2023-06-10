@@ -6,16 +6,16 @@ import PackageDescription
 let package = Package(
     name: "SwiftAtomicsTest",
     targets: [
-        .target(
-            name: "_AtomicsShims",
-            exclude: [
-                "BUILD.bazel",
-            ]
-        ),
+        // .target(
+        //     name: "_AtomicsShims",
+        //     exclude: [
+        //         "BUILD.bazel",
+        //     ]
+        // ),
         .target(
             name: "Atomics",
             dependencies: [
-                "_AtomicsShims"
+                // "_AtomicsShims"
             ],
             exclude: [
                 "BUILD.bazel",

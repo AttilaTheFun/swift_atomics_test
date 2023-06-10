@@ -1,4 +1,4 @@
-import _AtomicsShims
+// import _AtomicsShims
 
 extension Bool: AtomicValue {
 

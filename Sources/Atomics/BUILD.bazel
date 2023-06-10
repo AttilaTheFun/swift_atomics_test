@@ -6,6 +6,7 @@ swift_library(
     srcs = glob([
         "**/*.swift",
     ]),
+    defines = ["SWIFT_PACKAGE"],
     module_name = "Atomics",
     deps = [],
     visibility = ["//visibility:public"],

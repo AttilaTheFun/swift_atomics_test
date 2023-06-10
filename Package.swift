@@ -6,17 +6,17 @@ import PackageDescription
 let package = Package(
     name: "SwiftAtomicsTest",
     targets: [
-        .target(
-            name: "Atomics",
-            exclude: [
-                "BUILD.bazel",
-            ]
-        ),
+        // .target(
+        //     name: "Atomics",
+        //     exclude: [
+        //         "BUILD.bazel",
+        //     ]
+        // ),
         .executableTarget(
             name: "SwiftAtomicsTest",
-            dependencies: [
-                "Atomics"
-            ],
+            // dependencies: [
+            //     "Atomics"
+            // ],
             exclude: ["BUILD.bazel"]
         )
     ]

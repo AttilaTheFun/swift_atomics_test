@@ -1,4 +1,4 @@
-import Atomics
+// import Atomics
 
 @main
 struct SwiftAtomicsTestMain {

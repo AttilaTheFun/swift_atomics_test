@@ -23,42 +23,18 @@ internal func _atomicMemoryFence(
 }
 
 extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
-  /// Atomically loads a word starting at this address with the specified
-  /// memory ordering.
-  @_semantics("atomics.requires_constant_orderings")
-  @_alwaysEmitIntoClient
-  @_transparent // Debug performance
-  @usableFromInline
-  internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int8 {
-    switch ordering {
-    case .relaxed:
-      return _sa_load_relaxed_Int8(self)
-    case .acquiring:
-      return _sa_load_acquire_Int8(self)
-    case .sequentiallyConsistent:
-      return _sa_load_seq_cst_Int8(self)
-    default:
-      fatalError("Unsupported ordering")
-    }
-  }
-
-  /// Atomically stores the specified value starting at the memory referenced by
-  /// this pointer, with the specified memory ordering.
   // @_semantics("atomics.requires_constant_orderings")
   // @_alwaysEmitIntoClient
   // @_transparent // Debug performance
   // @usableFromInline
-  // internal func _atomicStore(
-  //   _ desired: Int8,
-  //   ordering: AtomicStoreOrdering
-  // ) {
+  // internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int8 {
   //   switch ordering {
   //   case .relaxed:
-  //     _sa_store_relaxed_Int8(self, desired)
-  //   case .releasing:
-  //     _sa_store_release_Int8(self, desired)
+  //     return _sa_load_relaxed_Int8(self)
+  //   case .acquiring:
+  //     return _sa_load_acquire_Int8(self)
   //   case .sequentiallyConsistent:
-  //     _sa_store_seq_cst_Int8(self, desired)
+  //     return _sa_load_seq_cst_Int8(self)
   //   default:
   //     fatalError("Unsupported ordering")
   //   }

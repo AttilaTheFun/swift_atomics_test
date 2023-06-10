@@ -64,23 +64,13 @@ where Pointee == Bool.AtomicRepresentation {
 }
 
 extension Bool.AtomicRepresentation: AtomicStorage {
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public static func atomicLoad(
-    at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-    ordering: AtomicLoadOrdering
-  ) -> Bool {
-    pointer._extract._atomicLoad(ordering: ordering)._atomicBoolValue
-  }
-
   // @_semantics("atomics.requires_constant_orderings")
   // @_transparent @_alwaysEmitIntoClient
-  // public static func atomicStore(
-  //   _ desired: __owned Bool,
+  // public static func atomicLoad(
   //   at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-  //   ordering: AtomicStoreOrdering
-  // ) {
-  //   pointer._extract._atomicStore(desired._atomicValue, ordering: ordering)
+  //   ordering: AtomicLoadOrdering
+  // ) -> Bool {
+  //   pointer._extract._atomicLoad(ordering: ordering)._atomicBoolValue
   // }
 }
 

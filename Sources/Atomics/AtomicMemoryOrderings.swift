@@ -14,10 +14,8 @@
 import Swift
 #endif
 
-/// Specifies the memory ordering semantics of an atomic load operation.
 @frozen
 public struct AtomicLoadOrdering {
-  // This struct works like a non-frozen enum whose cases aren't reorderable.
 
   @usableFromInline
   internal var _rawValue: Int
@@ -30,12 +28,7 @@ public struct AtomicLoadOrdering {
 }
 
 extension AtomicLoadOrdering {
-  // FIXME: Explain these ordering levels in more detail.
 
-  /// Guarantees the atomicity of the specific operation on which it is applied,
-  /// but imposes no ordering constraints on any other variable accesses.
-  ///
-  /// This value corresponds to `std::memory_order_relaxed` in C++.
   @_semantics("constant_evaluable")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
@@ -43,12 +36,6 @@ extension AtomicLoadOrdering {
     Self(_rawValue: 0)
   }
 
-  /// An acquiring load synchronizes with a releasing operation whose
-  /// value its reads. It ensures that the releasing and acquiring
-  /// threads agree that all subsequent variable accesses on the
-  /// acquiring thread happen after the atomic operation itself.
-  ///
-  /// This value corresponds to `std::memory_order_acquire` in C++.
   @_semantics("constant_evaluable")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
@@ -56,12 +43,6 @@ extension AtomicLoadOrdering {
     Self(_rawValue: 2)
   }
 
-  /// A sequentially consistent load performs an acquiring load and
-  /// also guarantees that it and all other sequentially consistent
-  /// atomic operations (loads, stores, updates) appear to be executed
-  /// in a single, total sequential ordering.
-  ///
-  /// This value corresponds to `std::memory_order_seq_cst` in C++.
   @_semantics("constant_evaluable")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
@@ -305,33 +286,4 @@ extension AtomicLoadOrdering {
     default: fatalError("Unsupported ordering")
     }
   }
-}
-
-/// Establishes a memory ordering without associating it with a
-/// particular atomic operation.
-///
-/// - A relaxed fence has no effect.
-/// - An acquiring fence ties to any preceding atomic operation that
-///   reads a value, and synchronizes with any releasing operation whose
-///   value was read.
-/// - A releasing fence ties to any subsequent atomic operation that
-///   modifies a value, and synchronizes with any acquiring operation
-///   that reads the result.
-/// - An acquiring and releasing fence is a combination of an
-///   acquiring and a releasing fence.
-/// - A sequentially consistent fence behaves like an acquiring and
-///   releasing fence, and ensures that the fence itself is part of
-///   the single, total ordering for all sequentially consistent
-///   operations.
-///
-/// This operation corresponds to `std::atomic_thread_fence` in C++.
-///
-/// Be aware that Thread Sanitizer does not support fences and may report
-/// false-positive races for data protected by a fence.
-@_semantics("atomics.requires_constant_orderings")
-@_transparent // Debug performance
-public func atomicMemoryFence(
-  ordering: AtomicUpdateOrdering
-) {
-  _atomicMemoryFence(ordering: ordering)
 }

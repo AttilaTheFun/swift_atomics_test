@@ -95,12 +95,12 @@ public protocol AtomicStorage {
   ///   returned by `prepareAtomicRepresentation(for:)`.
   /// - Parameter ordering: The memory ordering to apply on this operation.
   /// - Returns: The original value.
-  @_semantics("atomics.requires_constant_orderings")
-  static func atomicExchange(
-    _ desired: __owned Value,
-    at pointer: UnsafeMutablePointer<Self>,
-    ordering: AtomicUpdateOrdering
-  ) -> Value
+  // @_semantics("atomics.requires_constant_orderings")
+  // static func atomicExchange(
+  //   _ desired: __owned Value,
+  //   at pointer: UnsafeMutablePointer<Self>,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> Value
 
   /// Perform an atomic compare and exchange operation on the value referenced
   /// by `pointer`, applying the specified memory ordering.

@@ -29,15 +29,6 @@ public protocol AtomicIntegerStorage: AtomicStorage {
     ordering: AtomicUpdateOrdering
   ) -> Value
 
-  /// Perform an atomic bitwise AND operation on the value referenced by
-  /// `pointer` and return the original value, applying the specified memory
-  /// ordering.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter pointer: A memory location previously initialized with a value
-  ///   returned by `prepareAtomicRepresentation(for:)`.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
   @_semantics("atomics.requires_constant_orderings")
   static func atomicLoadThenBitwiseAnd(
     with operand: Value,
@@ -45,15 +36,6 @@ public protocol AtomicIntegerStorage: AtomicStorage {
     ordering: AtomicUpdateOrdering
   ) -> Value
 
-  /// Perform an atomic bitwise OR operation on the value referenced by
-  /// `pointer` and return the original value, applying the specified memory
-  /// ordering.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter pointer: A memory location previously initialized with a value
-  ///   returned by `prepareAtomicRepresentation(for:)`.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
   @_semantics("atomics.requires_constant_orderings")
   static func atomicLoadThenBitwiseOr(
     with operand: Value,
@@ -61,15 +43,6 @@ public protocol AtomicIntegerStorage: AtomicStorage {
     ordering: AtomicUpdateOrdering
   ) -> Value
 
-  /// Perform an atomic bitwise XOR operation on the value referenced by
-  /// `pointer` and return the original value, applying the specified memory
-  /// ordering.
-  ///
-  /// - Parameter operand: An integer value.
-  /// - Parameter pointer: A memory location previously initialized with a value
-  ///   returned by `prepareAtomicRepresentation(for:)`.
-  /// - Parameter ordering: The memory ordering to apply on this operation.
-  /// - Returns: The original value before the operation.
   @_semantics("atomics.requires_constant_orderings")
   static func atomicLoadThenBitwiseXor(
     with operand: Value,

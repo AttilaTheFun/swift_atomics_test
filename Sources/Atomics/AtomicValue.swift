@@ -25,7 +25,7 @@ public protocol AtomicValue {
 /// The storage representation for an atomic value, providing pointer-based
 /// atomic operations. This is a low-level implementation detail of atomic
 /// types; instead of directly handling conforming types, it is usually better
-/// to use the `UnsafeAtomic` or `ManagedAtomic` generics -- these provide more
+/// to use the `ManagedAtomic` generics -- these provide more
 /// convenient and safer interfaces while also ensuring that the storage is
 /// correctly constructed and destroyed.
 ///

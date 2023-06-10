@@ -1,7 +1,7 @@
 
 extension Bool: AtomicValue {
 
-  @frozen
+  // @frozen
   public struct AtomicRepresentation {
     public typealias Value = Bool
 

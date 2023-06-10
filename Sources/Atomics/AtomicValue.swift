@@ -8,6 +8,4 @@ public protocol AtomicStorage {
   associatedtype Value
 
   init(_ value: __owned Value)
-
-  // __consuming func dispose() -> Value
 }

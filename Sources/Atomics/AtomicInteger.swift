@@ -10,43 +10,43 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if ATOMICS_NATIVE_BUILTINS
-import Swift
-#endif
+// #if ATOMICS_NATIVE_BUILTINS
+// import Swift
+// #endif
 
-public protocol AtomicInteger: AtomicValue, FixedWidthInteger
-where
-  AtomicRepresentation: AtomicIntegerStorage,
-  AtomicRepresentation.Value == Self
-{}
+// public protocol AtomicInteger: AtomicValue, FixedWidthInteger
+// where
+//   AtomicRepresentation: AtomicIntegerStorage,
+//   AtomicRepresentation.Value == Self
+// {}
 
-public protocol AtomicIntegerStorage: AtomicStorage {
+// public protocol AtomicIntegerStorage: AtomicStorage {
 
-  @_semantics("atomics.requires_constant_orderings")
-  static func atomicLoadThenWrappingDecrement(
-    by operand: Value,
-    at pointer: UnsafeMutablePointer<Self>,
-    ordering: AtomicUpdateOrdering
-  ) -> Value
+//   @_semantics("atomics.requires_constant_orderings")
+//   static func atomicLoadThenWrappingDecrement(
+//     by operand: Value,
+//     at pointer: UnsafeMutablePointer<Self>,
+//     ordering: AtomicUpdateOrdering
+//   ) -> Value
 
-  @_semantics("atomics.requires_constant_orderings")
-  static func atomicLoadThenBitwiseAnd(
-    with operand: Value,
-    at pointer: UnsafeMutablePointer<Self>,
-    ordering: AtomicUpdateOrdering
-  ) -> Value
+//   @_semantics("atomics.requires_constant_orderings")
+//   static func atomicLoadThenBitwiseAnd(
+//     with operand: Value,
+//     at pointer: UnsafeMutablePointer<Self>,
+//     ordering: AtomicUpdateOrdering
+//   ) -> Value
 
-  @_semantics("atomics.requires_constant_orderings")
-  static func atomicLoadThenBitwiseOr(
-    with operand: Value,
-    at pointer: UnsafeMutablePointer<Self>,
-    ordering: AtomicUpdateOrdering
-  ) -> Value
+//   @_semantics("atomics.requires_constant_orderings")
+//   static func atomicLoadThenBitwiseOr(
+//     with operand: Value,
+//     at pointer: UnsafeMutablePointer<Self>,
+//     ordering: AtomicUpdateOrdering
+//   ) -> Value
 
-  @_semantics("atomics.requires_constant_orderings")
-  static func atomicLoadThenBitwiseXor(
-    with operand: Value,
-    at pointer: UnsafeMutablePointer<Self>,
-    ordering: AtomicUpdateOrdering
-  ) -> Value
-}
+//   @_semantics("atomics.requires_constant_orderings")
+//   static func atomicLoadThenBitwiseXor(
+//     with operand: Value,
+//     at pointer: UnsafeMutablePointer<Self>,
+//     ordering: AtomicUpdateOrdering
+//   ) -> Value
+// }

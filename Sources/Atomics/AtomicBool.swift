@@ -5,10 +5,10 @@ extension Bool: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Bool
 
-    @usableFromInline
+    // @usableFromInline
     internal typealias _Storage = Int8
 
-    @usableFromInline
+    // @usableFromInline
     internal var _storage: _Storage
 
     public init(_ value: Bool) {

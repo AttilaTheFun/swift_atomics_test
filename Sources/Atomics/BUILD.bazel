@@ -7,8 +7,6 @@ swift_library(
         "**/*.swift",
     ]),
     module_name = "Atomics",
-    deps = [
-        # "//Sources/_AtomicsShims",
-    ],
+    deps = [],
     visibility = ["//visibility:public"],
 )

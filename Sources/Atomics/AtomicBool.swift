@@ -103,48 +103,31 @@ extension Bool.AtomicRepresentation: AtomicStorage {
     pointer._extract._atomicStore(desired._atomicValue, ordering: ordering)
   }
 
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public static func atomicCompareExchange(
-    expected: Bool,
-    desired: __owned Bool,
-    at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-    ordering: AtomicUpdateOrdering
-  ) -> (exchanged: Bool, original: Bool) {
-    let r = pointer._extract._atomicCompareExchange(
-      expected: expected._atomicValue,
-      desired: desired._atomicValue,
-      ordering: ordering)
-    return (r.exchanged, r.original._atomicBoolValue)
-  }
-
-  @_semantics("atomics.requires_constant_orderings")
-  @_transparent @_alwaysEmitIntoClient
-  public static func atomicCompareExchange(
-    expected: Bool,
-    desired: __owned Bool,
-    at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
-    successOrdering: AtomicUpdateOrdering,
-    failureOrdering: AtomicLoadOrdering
-  ) -> (exchanged: Bool, original: Bool) {
-    let r = pointer._extract._atomicCompareExchange(
-      expected: expected._atomicValue,
-      desired: desired._atomicValue,
-      successOrdering: successOrdering,
-      failureOrdering: failureOrdering)
-    return (r.exchanged, r.original._atomicBoolValue)
-  }
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_transparent @_alwaysEmitIntoClient
+  // public static func atomicCompareExchange(
+  //   expected: Bool,
+  //   desired: __owned Bool,
+  //   at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> (exchanged: Bool, original: Bool) {
+  //   let r = pointer._extract._atomicCompareExchange(
+  //     expected: expected._atomicValue,
+  //     desired: desired._atomicValue,
+  //     ordering: ordering)
+  //   return (r.exchanged, r.original._atomicBoolValue)
+  // }
 
   // @_semantics("atomics.requires_constant_orderings")
   // @_transparent @_alwaysEmitIntoClient
-  // public static func atomicWeakCompareExchange(
+  // public static func atomicCompareExchange(
   //   expected: Bool,
   //   desired: __owned Bool,
   //   at pointer: UnsafeMutablePointer<Bool.AtomicRepresentation>,
   //   successOrdering: AtomicUpdateOrdering,
   //   failureOrdering: AtomicLoadOrdering
   // ) -> (exchanged: Bool, original: Bool) {
-  //   let r = pointer._extract._atomicWeakCompareExchange(
+  //   let r = pointer._extract._atomicCompareExchange(
   //     expected: expected._atomicValue,
   //     desired: desired._atomicValue,
   //     successOrdering: successOrdering,

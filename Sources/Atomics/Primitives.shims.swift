@@ -64,125 +64,42 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
     }
   }
 
-  @_semantics("atomics.requires_constant_orderings")
-  @_alwaysEmitIntoClient
-  @_transparent // Debug performance
-  public func _atomicCompareExchange(
-    expected: Int8,
-    desired: Int8,
-    ordering: AtomicUpdateOrdering
-  ) -> (exchanged: Bool, original: Int8) {
-    var expected = expected
-    let exchanged: Bool
-    switch ordering {
-    case .relaxed:
-      exchanged = _sa_cmpxchg_strong_relaxed_relaxed_Int8(
-        self, &expected, desired)
-    case .acquiring:
-      exchanged = _sa_cmpxchg_strong_acquire_acquire_Int8(
-        self, &expected, desired)
-    case .releasing:
-      exchanged = _sa_cmpxchg_strong_release_relaxed_Int8(
-        self, &expected, desired)
-    case .acquiringAndReleasing:
-      exchanged = _sa_cmpxchg_strong_acq_rel_acquire_Int8(
-        self, &expected, desired)
-    case .sequentiallyConsistent:
-      exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
-        self, &expected, desired)
-    default:
-      fatalError("Unsupported ordering")
-    }
-    return (exchanged, expected)
-  }
-
-  @_semantics("atomics.requires_constant_orderings")
-  @_alwaysEmitIntoClient
-  @_transparent // Debug performance
-  public func _atomicCompareExchange(
-    expected: Int8,
-    desired: Int8,
-    successOrdering: AtomicUpdateOrdering,
-    failureOrdering: AtomicLoadOrdering
-  ) -> (exchanged: Bool, original: Int8) {
-    // FIXME: LLVM doesn't support arbitrary ordering combinations
-    // yet, so upgrade the success ordering when necessary so that it
-    // is at least as "strong" as the failure case.
-    var expected = expected
-    let exchanged: Bool
-    switch (successOrdering, failureOrdering) {
-    case (.relaxed, .relaxed):
-      exchanged = _sa_cmpxchg_strong_relaxed_relaxed_Int8(
-        self, &expected, desired)
-    case (.relaxed, .acquiring):
-      exchanged = _sa_cmpxchg_strong_acquire_acquire_Int8(
-        self, &expected, desired)
-    case (.relaxed, .sequentiallyConsistent):
-      exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
-        self, &expected, desired)
-    case (.acquiring, .relaxed):
-      exchanged = _sa_cmpxchg_strong_acquire_relaxed_Int8(
-        self, &expected, desired)
-    case (.acquiring, .acquiring):
-      exchanged = _sa_cmpxchg_strong_acquire_acquire_Int8(
-        self, &expected, desired)
-    case (.acquiring, .sequentiallyConsistent):
-      exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
-        self, &expected, desired)
-    case (.releasing, .relaxed):
-      exchanged = _sa_cmpxchg_strong_release_relaxed_Int8(
-        self, &expected, desired)
-    case (.releasing, .acquiring):
-      exchanged = _sa_cmpxchg_strong_acq_rel_acquire_Int8(
-        self, &expected, desired)
-    case (.releasing, .sequentiallyConsistent):
-      exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
-        self, &expected, desired)
-    case (.acquiringAndReleasing, .relaxed):
-      exchanged = _sa_cmpxchg_strong_acq_rel_relaxed_Int8(
-        self, &expected, desired)
-    case (.acquiringAndReleasing, .acquiring):
-      exchanged = _sa_cmpxchg_strong_acq_rel_acquire_Int8(
-        self, &expected, desired)
-    case (.acquiringAndReleasing, .sequentiallyConsistent):
-      exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
-        self, &expected, desired)
-    case (.sequentiallyConsistent, .relaxed):
-      exchanged = _sa_cmpxchg_strong_seq_cst_relaxed_Int8(
-        self, &expected, desired)
-    case (.sequentiallyConsistent, .acquiring):
-      exchanged = _sa_cmpxchg_strong_seq_cst_acquire_Int8(
-        self, &expected, desired)
-    case (.sequentiallyConsistent, .sequentiallyConsistent):
-      exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
-        self, &expected, desired)
-    default:
-      preconditionFailure("Unsupported orderings")
-    }
-    return (exchanged, expected)
-  }
-
-  /// Perform an atomic compare and exchange operation with the specified
-  /// success/failure memory orderings.
-  ///
-  /// This operation is equivalent to the following pseudocode:
-  ///
-  /// ```
-  /// atomic(self, ordering, failureOrdering) { currentValue in
-  ///   let original = currentValue
-  ///   guard original == expected else { return (false, original) }
-  ///   currentValue = desired
-  ///   return (true, original)
-  /// }
-  /// ```
-  ///
-  /// The `ordering` argument specifies the memory ordering to use when the
-  /// operation manages to update the current value, while `failureOrdering`
-  /// will be used when the operation leaves the value intact.
   // @_semantics("atomics.requires_constant_orderings")
   // @_alwaysEmitIntoClient
   // @_transparent // Debug performance
-  // public func _atomicWeakCompareExchange(
+  // public func _atomicCompareExchange(
+  //   expected: Int8,
+  //   desired: Int8,
+  //   ordering: AtomicUpdateOrdering
+  // ) -> (exchanged: Bool, original: Int8) {
+  //   var expected = expected
+  //   let exchanged: Bool
+  //   switch ordering {
+  //   case .relaxed:
+  //     exchanged = _sa_cmpxchg_strong_relaxed_relaxed_Int8(
+  //       self, &expected, desired)
+  //   case .acquiring:
+  //     exchanged = _sa_cmpxchg_strong_acquire_acquire_Int8(
+  //       self, &expected, desired)
+  //   case .releasing:
+  //     exchanged = _sa_cmpxchg_strong_release_relaxed_Int8(
+  //       self, &expected, desired)
+  //   case .acquiringAndReleasing:
+  //     exchanged = _sa_cmpxchg_strong_acq_rel_acquire_Int8(
+  //       self, &expected, desired)
+  //   case .sequentiallyConsistent:
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
+  //       self, &expected, desired)
+  //   default:
+  //     fatalError("Unsupported ordering")
+  //   }
+  //   return (exchanged, expected)
+  // }
+
+  // @_semantics("atomics.requires_constant_orderings")
+  // @_alwaysEmitIntoClient
+  // @_transparent // Debug performance
+  // public func _atomicCompareExchange(
   //   expected: Int8,
   //   desired: Int8,
   //   successOrdering: AtomicUpdateOrdering,
@@ -195,49 +112,49 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   //   let exchanged: Bool
   //   switch (successOrdering, failureOrdering) {
   //   case (.relaxed, .relaxed):
-  //     exchanged = _sa_cmpxchg_weak_relaxed_relaxed_Int8(
+  //     exchanged = _sa_cmpxchg_strong_relaxed_relaxed_Int8(
   //       self, &expected, desired)
   //   case (.relaxed, .acquiring):
-  //     exchanged = _sa_cmpxchg_weak_acquire_acquire_Int8(
+  //     exchanged = _sa_cmpxchg_strong_acquire_acquire_Int8(
   //       self, &expected, desired)
   //   case (.relaxed, .sequentiallyConsistent):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_seq_cst_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
   //       self, &expected, desired)
   //   case (.acquiring, .relaxed):
-  //     exchanged = _sa_cmpxchg_weak_acquire_relaxed_Int8(
+  //     exchanged = _sa_cmpxchg_strong_acquire_relaxed_Int8(
   //       self, &expected, desired)
   //   case (.acquiring, .acquiring):
-  //     exchanged = _sa_cmpxchg_weak_acquire_acquire_Int8(
+  //     exchanged = _sa_cmpxchg_strong_acquire_acquire_Int8(
   //       self, &expected, desired)
   //   case (.acquiring, .sequentiallyConsistent):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_seq_cst_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
   //       self, &expected, desired)
   //   case (.releasing, .relaxed):
-  //     exchanged = _sa_cmpxchg_weak_release_relaxed_Int8(
+  //     exchanged = _sa_cmpxchg_strong_release_relaxed_Int8(
   //       self, &expected, desired)
   //   case (.releasing, .acquiring):
-  //     exchanged = _sa_cmpxchg_weak_acq_rel_acquire_Int8(
+  //     exchanged = _sa_cmpxchg_strong_acq_rel_acquire_Int8(
   //       self, &expected, desired)
   //   case (.releasing, .sequentiallyConsistent):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_seq_cst_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
   //       self, &expected, desired)
   //   case (.acquiringAndReleasing, .relaxed):
-  //     exchanged = _sa_cmpxchg_weak_acq_rel_relaxed_Int8(
+  //     exchanged = _sa_cmpxchg_strong_acq_rel_relaxed_Int8(
   //       self, &expected, desired)
   //   case (.acquiringAndReleasing, .acquiring):
-  //     exchanged = _sa_cmpxchg_weak_acq_rel_acquire_Int8(
+  //     exchanged = _sa_cmpxchg_strong_acq_rel_acquire_Int8(
   //       self, &expected, desired)
   //   case (.acquiringAndReleasing, .sequentiallyConsistent):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_seq_cst_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
   //       self, &expected, desired)
   //   case (.sequentiallyConsistent, .relaxed):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_relaxed_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_relaxed_Int8(
   //       self, &expected, desired)
   //   case (.sequentiallyConsistent, .acquiring):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_acquire_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_acquire_Int8(
   //       self, &expected, desired)
   //   case (.sequentiallyConsistent, .sequentiallyConsistent):
-  //     exchanged = _sa_cmpxchg_weak_seq_cst_seq_cst_Int8(
+  //     exchanged = _sa_cmpxchg_strong_seq_cst_seq_cst_Int8(
   //       self, &expected, desired)
   //   default:
   //     preconditionFailure("Unsupported orderings")
@@ -245,13 +162,6 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   //   return (exchanged, expected)
   // }
 
-  /// Perform an atomic wrapping subtract operation and return the new value,
-  /// with the specified memory ordering.
-  ///
-  /// - Note: This operation silently wraps around on overflow, like the
-  /// `&-` operator does on `UInt` values.
-  ///
-  /// - Returns: The original value before the operation.
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance

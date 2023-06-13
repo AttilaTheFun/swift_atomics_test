@@ -44,8 +44,6 @@ bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.swiftmodule \
 -no-serialize-debugging-options \
 -enable-testing \
 -g \
-'-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
-'-Xwrapped-swift=-file-prefix-pwd-is-dot' \
 -module-cache-path \
 bazel-out-test/aarch64-dbg/bin/_swift_module_cache \
 -Xcc \

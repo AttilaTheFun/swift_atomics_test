@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Create Directories
+echo "Creating Directories"
 
 mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics
 
-# Compiling Swift module //Sources/Atomics:Atomics
+echo "Compiling Swift module //Sources/Atomics:Atomics"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \
 -emit-object \
@@ -41,7 +41,7 @@ Sources/Atomics/AtomicBool.swift \
 Sources/Atomics/AtomicValue.swift \
 Sources/Atomics/ManagedAtomic.swift
 
-# Extracting autolink data for Swift module //Sources/Atomics:Atomics
+echo "Extracting autolink data for Swift module //Sources/Atomics:Atomics"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-autolink-extract \
 bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.o \
@@ -50,7 +50,7 @@ bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.
 -o \
 bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.autolink
 
-# Wrapping Swift module //Sources/SwiftAtomicsTest:SwiftAtomicsTest for debugging
+echo "Wrapping Swift module //Sources/SwiftAtomicsTest:SwiftAtomicsTest for debugging"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift \
 -modulewrap \
@@ -58,7 +58,7 @@ bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.swiftmo
 -o \
 bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.modulewrap.o
 
-# Linking Sources/SwiftAtomicsTest/SwiftAtomicsTest
+echo "Linking Sources/SwiftAtomicsTest/SwiftAtomicsTest"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/clang-13 \
 @bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.autolink \

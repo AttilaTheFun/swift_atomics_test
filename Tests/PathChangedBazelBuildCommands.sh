@@ -3,6 +3,7 @@
 echo "Creating Directories"
 
 mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs
+mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest
 
 echo "Creating Files"
 

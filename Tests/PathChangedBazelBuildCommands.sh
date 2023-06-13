@@ -4,6 +4,28 @@ echo "Creating Directories"
 
 mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics
 
+echo "Creating Files"
+
+read -r -d '' OUTPUT_FILE_MAP << EOM
+{
+    "Sources/Atomics/AtomicBool.swift":{
+        "ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.ast",
+        "object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.o"
+    },
+    "Sources/Atomics/AtomicValue.swift":{
+        "ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.ast",
+        "object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.o"
+    },
+    "Sources/Atomics/ManagedAtomic.swift":{
+        "ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.ast",
+        "object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.o"
+    }
+}
+EOM
+
+touch bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
+echo $OUTPUT_FILE_MAP | tee bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
+
 echo "Compiling Swift module //Sources/Atomics:Atomics"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \

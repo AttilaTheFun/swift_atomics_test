@@ -6,7 +6,7 @@ mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics
 
 echo "Creating Files"
 
-OUTPUT_FILE_MAP = $(cat << END
+OUTPUT_FILE_MAP=$(cat << END
 {
     "Sources/Atomics/AtomicBool.swift":{
         "ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.ast",

@@ -25,7 +25,7 @@ END
 )
 
 touch bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
-echo $OUTPUT_FILE_MAP >> bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
+echo -e $text > bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
 
 echo "Compiling Swift module //Sources/Atomics:Atomics"
 

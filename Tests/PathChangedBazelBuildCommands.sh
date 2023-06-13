@@ -2,7 +2,7 @@
 
 echo "Creating Directories"
 
-mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics
+mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs
 
 echo "Creating Files"
 

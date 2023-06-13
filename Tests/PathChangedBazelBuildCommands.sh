@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Create Directories
+
+mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics
+
 # Compiling Swift module //Sources/Atomics:Atomics
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \

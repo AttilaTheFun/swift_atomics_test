@@ -6,7 +6,7 @@ mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics
 
 echo "Creating Files"
 
-read -r -d '' OUTPUT_FILE_MAP << EOM
+OUTPUT_FILE_MAP = $(cat << END
 {
     "Sources/Atomics/AtomicBool.swift":{
         "ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.ast",
@@ -21,7 +21,8 @@ read -r -d '' OUTPUT_FILE_MAP << EOM
         "object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.o"
     }
 }
-EOM
+END
+)
 
 touch bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
 echo $OUTPUT_FILE_MAP | tee bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json

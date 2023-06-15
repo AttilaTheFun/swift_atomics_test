@@ -33,6 +33,9 @@ echo $OUTPUT_FILE_MAP > bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.o
 
 # Compiling Swift module //Sources/Atomics:Atomics
 
+# '-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
+# '-Xwrapped-swift=-file-prefix-pwd-is-dot' \
+
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \
 -emit-object \
 -output-file-map \
@@ -48,8 +51,6 @@ bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.swiftmodule \
 -no-serialize-debugging-options \
 -enable-testing \
 -gline-tables-only \
-'-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
-'-Xwrapped-swift=-file-prefix-pwd-is-dot' \
 -module-cache-path \
 bazel-out-test/aarch64-dbg/bin/_swift_module_cache \
 -Xcc \
@@ -93,6 +94,9 @@ bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.modulewrap.o
 
 echo "Compiling Swift module //Sources/SwiftAtomicsTest:SwiftAtomicsTest"
 
+# '-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
+# '-Xwrapped-swift=-file-prefix-pwd-is-dot' \
+
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \
 -emit-object \
 -output-file-map \
@@ -108,8 +112,6 @@ bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.swiftmo
 -no-serialize-debugging-options \
 -enable-testing \
 -gline-tables-only \
-'-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
-'-Xwrapped-swift=-file-prefix-pwd-is-dot' \
 -module-cache-path \
 bazel-out-test/aarch64-dbg/bin/_swift_module_cache \
 -Ibazel-out-test/aarch64-dbg/bin/Sources/Atomics \

@@ -37,7 +37,7 @@ TEST_OUTPUT_FILE_MAP=$(cat << END
 END
 )
 
-echo $TEST_OUTPUT_FILE_MAP > bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.jso
+echo $TEST_OUTPUT_FILE_MAP > bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
 
 # Compiling Swift module //Sources/Atomics:Atomics
 

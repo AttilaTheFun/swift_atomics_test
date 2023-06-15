@@ -33,7 +33,7 @@ END
 echo $ATOMICS_OUTPUT_FILE_MAP > bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
 
 TEST_OUTPUT_FILE_MAP=$(cat << END
-{"Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift":{"ast-dump":"bazel-out/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast","object":"bazel-out/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o"}
+{"Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o"}
 END
 )
 

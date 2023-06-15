@@ -26,13 +26,15 @@ touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.s
 echo "Creating Output File Map"
 
 ATOMICS_OUTPUT_FILE_MAP=$(cat << END
-{"Sources/Atomics/AtomicBool.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.o"},"Sources/Atomics/AtomicValue.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.o"},"Sources/Atomics/ManagedAtomic.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.o"}}END
+{"Sources/Atomics/AtomicBool.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.o"},"Sources/Atomics/AtomicValue.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.o"},"Sources/Atomics/ManagedAtomic.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.o"}}
+END
 )
 
 echo $ATOMICS_OUTPUT_FILE_MAP > bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
 
 TEST_OUTPUT_FILE_MAP=$(cat << END
-{"Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o"}END
+{"Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o"}
+END
 )
 
 echo $TEST_OUTPUT_FILE_MAP > bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json

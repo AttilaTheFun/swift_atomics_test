@@ -21,15 +21,20 @@ touch bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.
 touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
 touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast
 touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o
+touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.autolink
 touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.swiftmodule
 
-# Creating Output File Maps
+# Copying Output File Maps
 
 echo "Creating Output File Maps"
 
 cp Tests/Atomics.output_file_map.json bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
 
 cp Tests/SwiftAtomicsTest.output_file_map.json bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
+
+# Copying Params File
+
+cp Tests/SwiftAtomicsTest-2.params bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest-2.params
 
 # Compiling Swift module //Sources/Atomics:Atomics
 

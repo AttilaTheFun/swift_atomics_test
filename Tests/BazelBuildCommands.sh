@@ -23,21 +23,11 @@ touch bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.s
 
 # Creating Output File Maps
 
-echo "Creating Output File Map"
+echo "Creating Output File Maps"
 
-ATOMICS_OUTPUT_FILE_MAP=$(cat << END
-{"Sources/Atomics/AtomicBool.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicBool.swift.o"},"Sources/Atomics/AtomicValue.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/AtomicValue.swift.o"},"Sources/Atomics/ManagedAtomic.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.o"}}
-END
-)| tr -d '\r'
+cp Tests/Atomics.output_file_map.json bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
 
-echo $ATOMICS_OUTPUT_FILE_MAP | tr -d '\r' > bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.output_file_map.json
-
-TEST_OUTPUT_FILE_MAP=$(cat << END
-{"Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift":{"ast-dump":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast","object":"bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o"}
-END
-)
-
-echo $TEST_OUTPUT_FILE_MAP | tr -d '\r' > bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
+cp Tests/SwiftAtomicsTest.output_file_map.json bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
 
 # Compiling Swift module //Sources/Atomics:Atomics
 

@@ -8,7 +8,7 @@ set -e
 echo "Creating Directories"
 
 mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics_objs
-mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest
+mkdir -p bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest_objs
 
 # Creating Files
 

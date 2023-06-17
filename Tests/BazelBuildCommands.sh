@@ -37,7 +37,7 @@ cp Tests/SwiftAtomicsTest.output_file_map.json bazel-out-test/aarch64-dbg/bin/So
 
 # Copying Params File
 
-cp Tests/SwiftAtomicsTest-2.params bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest-2.params
+# cp Tests/SwiftAtomicsTest-2.params bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest-2.params
 
 # Compiling Swift module //Sources/Atomics:Atomics
 

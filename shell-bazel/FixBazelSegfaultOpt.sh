@@ -159,7 +159,7 @@ bazel-out-test/aarch64-opt/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.
 -lm \
 # -lstdc++ \
 # -lrt \
--ldl \
+# -ldl \
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift/linux/aarch64/swiftrt.o \
 -static-libgcc \
 # -lstdc++ \

@@ -3,6 +3,38 @@
 # Exit when any command fails:
 set -e
 
+# Creating Directories
+
+echo "Creating Directories"
+
+mkdir -p .build/aarch64-unknown-linux-gnu/release/Atomics.build
+mkdir -p .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build
+
+# Creating Files
+
+# echo "Creating Files"
+
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics.output_file_map.json
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicBool.swift.ast
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicBool.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicValue.swift.ast
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicValue.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/ManagedAtomic.swift.ast
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/ManagedAtomic.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest.output_file_map.json
+# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast
+# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest.autolink
+# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest.swiftmodule
+
+# Copying Output File Maps
+
+echo "Creating Output File Maps"
+
+cp shell-swuft/Atomics.output_file_map.json .build/aarch64-unknown-linux-gnu/release/Atomics.build/output-file-map.json
+
+cp shell-swuft/SwiftAtomicsTest.output_file_map.json .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/output-file-map.json
+
 # Compiling Swift Module Atomics
 
 echo "Compiling Swift Module Atomics"

@@ -1,0 +1,22 @@
+{
+  "": {
+    "dependencies": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics.d",
+    "object": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics.o",
+    "swift-dependencies": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/master.swiftdeps"
+  },
+  "/home/ubuntu/swift_atomics_test/Sources/Atomics/AtomicBool.swift": {
+    "object": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.o",
+    "swiftmodule": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool~partial.swiftmodule",
+    "swift-dependencies": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swiftdeps"
+  },
+  "/home/ubuntu/swift_atomics_test/Sources/Atomics/AtomicValue.swift": {
+    "object": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swift.o",
+    "swiftmodule": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue~partial.swiftmodule",
+    "swift-dependencies": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swiftdeps"
+  },
+  "/home/ubuntu/swift_atomics_test/Sources/Atomics/ManagedAtomic.swift": {
+    "object": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o",
+    "swiftmodule": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic~partial.swiftmodule",
+    "swift-dependencies": "/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swiftdeps"
+  }
+}

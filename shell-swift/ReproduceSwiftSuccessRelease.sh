@@ -74,46 +74,46 @@ aarch64-unknown-linux-gnu \
 
 # echo "Compiling Swift Module Atomics -- Frontend"
 
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-frontend \
-# -frontend \
-# -c \
-# Sources/Atomics/AtomicBool.swift \
-# Sources/Atomics/AtomicValue.swift \
-# Sources/Atomics/ManagedAtomic.swift \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-frontend \
+-frontend \
+-c \
+Sources/Atomics/AtomicBool.swift \
+Sources/Atomics/AtomicValue.swift \
+Sources/Atomics/ManagedAtomic.swift \
 # -supplementary-output-file-map \
 # /tmp/TemporaryDirectory.NXPY08/supplementaryOutputs-1 \
-# -target \
-# aarch64-unknown-linux-gnu \
-# -Xllvm \
-# -aarch64-use-tbi \
-# -disable-objc-interop \
-# -I \
-# .build/aarch64-unknown-linux-gnu/release \
-# -g \
-# -module-cache-path \
-# .build/aarch64-unknown-linux-gnu/release/ModuleCache \
-# -swift-version \
-# 5 \
-# -O \
-# -D \
-# SWIFT_PACKAGE \
-# -new-driver-path \
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver \
-# -empty-abi-descriptor \
-# -resource-dir \
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift \
-# -module-name \
-# Atomics \
-# -enable-default-cmo \
-# -parse-as-library \
-# -num-threads \
-# 2 \
-# -o \
-# .build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.o \
-# -o \
-# .build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swift.o \
-# -o \
-# .build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o
+-target \
+aarch64-unknown-linux-gnu \
+-Xllvm \
+-aarch64-use-tbi \
+-disable-objc-interop \
+-I \
+.build/aarch64-unknown-linux-gnu/release \
+-g \
+-module-cache-path \
+.build/aarch64-unknown-linux-gnu/release/ModuleCache \
+-swift-version \
+5 \
+-O \
+-D \
+SWIFT_PACKAGE \
+-new-driver-path \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver \
+-empty-abi-descriptor \
+-resource-dir \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift \
+-module-name \
+Atomics \
+-enable-default-cmo \
+-parse-as-library \
+-num-threads \
+2 \
+-o \
+.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.o \
+-o \
+.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swift.o \
+-o \
+.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o
 
 # Extracting autolink data for Swift module Atomics
 
@@ -165,50 +165,50 @@ SwiftAtomicsTest_main \
 -parse-as-library \
 -v
 
-# echo "Compiling Swift module SwiftAtomicsTest -- Frontend"
+echo "Compiling Swift module SwiftAtomicsTest -- Frontend"
 
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-frontend \
-# -frontend \
-# -c \
-# Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift \
-# -emit-module-path \
-# .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.swiftmodule \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-frontend \
+-frontend \
+-c \
+Sources/SwiftAtomicsTest/SwiftAtomicsTestMain.swift \
+-emit-module-path \
+.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.swiftmodule \
 # -emit-module-doc-path \
 # .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.swiftdoc \
 # -emit-module-source-info-path \
 # .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.swiftsourceinfo \
 # -emit-dependencies-path \
 # .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest.d \
-# -target \
-# aarch64-unknown-linux-gnu \
-# -Xllvm \
-# -aarch64-use-tbi \
-# -disable-objc-interop \
-# -I \
-# .build/aarch64-unknown-linux-gnu/release \
-# -g \
-# -module-cache-path \
-# .build/aarch64-unknown-linux-gnu/release/ModuleCache \
-# -swift-version \
-# 5 \
-# -O \
-# -D \
-# SWIFT_PACKAGE \
-# -new-driver-path \
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver \
-# -entry-point-function-name \
-# SwiftAtomicsTest_main \
-# -empty-abi-descriptor \
-# -resource-dir \
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift \
-# -module-name \
-# SwiftAtomicsTest \
-# -enable-default-cmo \
-# -parse-as-library \
-# -num-threads \
-# 2 \
-# -o \
-# .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTestMain.swift.o
+-target \
+aarch64-unknown-linux-gnu \
+-Xllvm \
+-aarch64-use-tbi \
+-disable-objc-interop \
+-I \
+.build/aarch64-unknown-linux-gnu/release \
+-g \
+-module-cache-path \
+.build/aarch64-unknown-linux-gnu/release/ModuleCache \
+-swift-version \
+5 \
+-O \
+-D \
+SWIFT_PACKAGE \
+-new-driver-path \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-driver \
+-entry-point-function-name \
+SwiftAtomicsTest_main \
+-empty-abi-descriptor \
+-resource-dir \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift \
+-module-name \
+SwiftAtomicsTest \
+-enable-default-cmo \
+-parse-as-library \
+-num-threads \
+2 \
+-o \
+.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTestMain.swift.o
 
 # Extracting autolink data for Swift module SwiftAtomicsTest
 

@@ -31,9 +31,9 @@ mkdir -p .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build
 
 echo "Creating Output File Maps"
 
-cp shell-swuft/Atomics.output_file_map.json .build/aarch64-unknown-linux-gnu/release/Atomics.build/output-file-map.json
+cp shell-swift/Atomics.output_file_map.json .build/aarch64-unknown-linux-gnu/release/Atomics.build/output-file-map.json
 
-cp shell-swuft/SwiftAtomicsTest.output_file_map.json .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/output-file-map.json
+cp shell-swift/SwiftAtomicsTest.output_file_map.json .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/output-file-map.json
 
 # Compiling Swift Module Atomics
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# exit when any command fails
+# Exit when any command fails:
 set -e
 
 # Creating Directories
@@ -35,14 +35,9 @@ cp Tests/Atomics.output_file_map.json bazel-out-test/aarch64-dbg/bin/Sources/Ato
 
 cp Tests/SwiftAtomicsTest.output_file_map.json bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
 
-# Copying Params File
-
-# cp Tests/SwiftAtomicsTest-2.params bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest-2.params
-
 # Compiling Swift module //Sources/Atomics:Atomics
 
-# '-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
-# '-Xwrapped-swift=-file-prefix-pwd-is-dot' \
+echo "Compiling Swift module //Sources/Atomics:Atomics"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \
 -emit-object \
@@ -101,9 +96,6 @@ bazel-out-test/aarch64-dbg/bin/Sources/Atomics/Atomics.modulewrap.o
 # Compiling Swift module //Sources/SwiftAtomicsTest:SwiftAtomicsTest
 
 echo "Compiling Swift module //Sources/SwiftAtomicsTest:SwiftAtomicsTest"
-
-# '-Xwrapped-swift=-debug-prefix-pwd-is-dot' \
-# '-Xwrapped-swift=-file-prefix-pwd-is-dot' \
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \
 -emit-object \

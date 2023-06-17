@@ -193,4 +193,3 @@ bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.modulew
 -static-libgcc \
 -lstdc++ \
 -lm
-# @bazel-out-test/aarch64-dbg/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest-2.params

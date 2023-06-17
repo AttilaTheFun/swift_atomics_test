@@ -82,9 +82,9 @@ Atomics \
 -o \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o
 
-# Extracting autolink data for Atomics
+# Extracting autolink data for Swift module Atomics
 
-echo "Extracting autolink data for Atomics"
+echo "Extracting autolink data for Swift module Atomics"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-autolink-extract \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.o \
@@ -92,6 +92,10 @@ echo "Extracting autolink data for Atomics"
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o \
 -o \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics.autolink
+
+# Compiling Swift module SwiftAtomicsTest
+
+echo "Compiling Swift module SwiftAtomicsTest"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swiftc \
 -module-name \
@@ -171,6 +175,10 @@ SwiftAtomicsTest \
 -o \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTestMain.swift.o
 
+# Extracting autolink data for Swift module SwiftAtomicsTest
+
+echo "Extracting autolink data for Swift module SwiftAtomicsTest"
+
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-autolink-extract \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTestMain.swift.o \
 -o \
@@ -208,6 +216,10 @@ aarch64-unknown-linux-gnu \
 -o \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/SwiftAtomicsTest.autolink
 
+# Linking Sources/SwiftAtomicsTest/SwiftAtomicsTest
+
+echo "Linking Sources/SwiftAtomicsTest/SwiftAtomicsTest"
+
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/clang \
 -fuse-ld=gold \
 -pie \
@@ -240,4 +252,3 @@ main=SwiftAtomicsTest_main \
 '-rpath=$ORIGIN' \
 -o \
 /home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest
-

@@ -31,9 +31,9 @@ touch bazel-out-test/aarch64-opt/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.s
 
 echo "Creating Output File Maps"
 
-cp Tests/Atomics.output_file_map.json bazel-out-test/aarch64-opt/bin/Sources/Atomics/Atomics.output_file_map.json
+cp shell-bazel/Atomics.output_file_map.json bazel-out-test/aarch64-opt/bin/Sources/Atomics/Atomics.output_file_map.json
 
-cp Tests/SwiftAtomicsTest.output_file_map.json bazel-out-test/aarch64-opt/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
+cp shell-bazel/SwiftAtomicsTest.output_file_map.json bazel-out-test/aarch64-opt/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.output_file_map.json
 
 # Compiling Swift module //Sources/Atomics:Atomics
 

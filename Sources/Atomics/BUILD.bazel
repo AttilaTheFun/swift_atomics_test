@@ -2,18 +2,12 @@ load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 swift_library(
     name = "Atomics",
-    # copts = select({
-    #     "@platforms//os:linux": [
-    #         "-Xllvm",
-    #         "-aarch64-use-tbi",
-    #     ], 
-    #     "//conditions:default": []
-    # }),
     srcs = glob([
         "**/*.swift",
     ]),
     defines = ["SWIFT_PACKAGE"],
     module_name = "Atomics",
+    alwayslink = True,
     deps = [],
     visibility = ["//visibility:public"],
 )

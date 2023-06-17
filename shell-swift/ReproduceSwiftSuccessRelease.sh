@@ -237,7 +237,11 @@ SwiftAtomicsTest \
 main=SwiftAtomicsTest_main \
 -Xlinker \
 '-rpath=$ORIGIN' \
-@/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.product/Objects.LinkFileList \
+# @/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.product/Objects.LinkFileList \
+/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.o \
+/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swift.o \
+/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o \
+/home/ubuntu/swift_atomics_test/.build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTestMain.swift.o \
 -target \
 aarch64-unknown-linux-gnu \
 -v \

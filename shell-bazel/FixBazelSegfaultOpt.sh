@@ -134,7 +134,6 @@ bazel-out-test/aarch64-opt/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.autolin
 echo "Linking Sources/SwiftAtomicsTest/SwiftAtomicsTest"
 
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/clang-13 \
-# /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/clang \
 @bazel-out-test/aarch64-opt/bin/Sources/Atomics/Atomics.autolink \
 @bazel-out-test/aarch64-opt/bin/Sources/SwiftAtomicsTest/SwiftAtomicsTest.autolink \
 -o \
@@ -157,11 +156,11 @@ bazel-out-test/aarch64-opt/bin/Sources/Atomics/Atomics_objs/ManagedAtomic.swift.
 -pie \
 -L/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift/linux \
 -Wl,-rpath,/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift/linux \
-# -lm \
+-lm \
 # -lstdc++ \
-# -lrt \
-# -ldl \
-/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift/linux/aarch64/swiftrt.o # \
-# -static-libgcc \
+-lrt \
+-ldl \
+/home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/lib/swift/linux/aarch64/swiftrt.o \
+-static-libgcc \
 # -lstdc++ \
-# -lm
+-lm

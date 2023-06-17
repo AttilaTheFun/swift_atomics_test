@@ -73,14 +73,16 @@ aarch64-unknown-linux-gnu \
 -parse-as-library \
 -v
 
+echo "Compiling Swift Module Atomics -- Frontend"
+
 /home/ubuntu/swift-5.8-RELEASE-ubuntu20.04-aarch64/usr/bin/swift-frontend \
 -frontend \
 -c \
 /home/ubuntu/swift_atomics_test/Sources/Atomics/AtomicBool.swift \
 /home/ubuntu/swift_atomics_test/Sources/Atomics/AtomicValue.swift \
 /home/ubuntu/swift_atomics_test/Sources/Atomics/ManagedAtomic.swift \
--supplementary-output-file-map \
-/tmp/TemporaryDirectory.NXPY08/supplementaryOutputs-1 \
+# -supplementary-output-file-map \
+# /tmp/TemporaryDirectory.NXPY08/supplementaryOutputs-1 \
 -target \
 aarch64-unknown-linux-gnu \
 -Xllvm \

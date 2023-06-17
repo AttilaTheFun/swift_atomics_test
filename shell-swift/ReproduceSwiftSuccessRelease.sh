@@ -14,17 +14,15 @@ mkdir -p .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build
 
 # echo "Creating Files"
 
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics.output_file_map.json
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicBool.swift.ast
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicBool.swift.o
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicValue.swift.ast
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/AtomicValue.swift.o
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/ManagedAtomic.swift.ast
-# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics_objs/ManagedAtomic.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.ast
+touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicBool.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swift.ast
+touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/AtomicValue.swift.o
+# touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.ast
+touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/ManagedAtomic.swift.o
 touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/Atomics.autolink
-# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest.output_file_map.json
 # touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.ast
-# touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest_objs/SwiftAtomicsTestMain.swift.o
+touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTestMain.swift.o
 touch .build/aarch64-unknown-linux-gnu/release/Atomics.build/SwiftAtomicsTest.autolink
 # touch .build/aarch64-unknown-linux-gnu/release/SwiftAtomicsTest.build/SwiftAtomicsTest.swiftmodule
 
